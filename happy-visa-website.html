@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Visa - Immigration & Visa Consultant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        .top-bar {
+            background: #1a237e;
+            color: white;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .top-bar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .top-bar i {
+            margin-right: 8px;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #1a237e;
+            padding: 15px 0;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #1a237e;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            animation: fadeInUp 1.2s;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1.4s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,107,107,0.3);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #1a237e;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-card i {
+            font-size: 50px;
+            color: #1a237e;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #1a237e;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            color: #1a237e;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            list-style: none;
+            margin-top: 30px;
+        }
+
+        .about-features li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .about-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4caf50;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            background: #ff6b6b;
+            color: white;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 20px rgba(255,107,107,0.3);
+        }
+
+        .experience-badge .number {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        /* Advantages Section */
+        .advantages {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .advantage-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .advantage-card i {
+            font-size: 40px;
+            color: #1a237e;
+            margin-bottom: 20px;
+        }
+
+        .advantage-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #1a237e;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1a237e 0%, #3949ab 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .cta-features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .cta-features li {
+            list-style: none;
+            font-size: 16px;
+        }
+
+        .cta-features i {
+            margin-right: 10px;
+            color: #4caf50;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .testimonial-card i {
+            font-size: 40px;
+            color: #1a237e;
+            opacity: 0.2;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #1a237e;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 20px;
+            background: #f8f9fa;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .contact-card i {
+            font-size: 40px;
+            color: #1a237e;
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #1a237e;
+        }
+
+        .contact-card a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-card a:hover {
+            color: #1a237e;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a237e;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .experience-badge {
+                width: 80px;
+                height: 80px;
+                bottom: -10px;
+                right: -10px;
+            }
+
+            .experience-badge .number {
+                font-size: 24px;
+            }
+
+            .top-bar .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div>
+                <a href="tel:+919640726262"><i class="fas fa-phone"></i>+91 9640 72 6262</a>
+                <a href="mailto:info@happyvisa.com"><i class="fas fa-envelope"></i>info@happyvisa.com</a>
+            </div>
+            <div>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Happy Visa</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Immigration & Visa Consultant</h1>
+            <p>We are a team of immigration experts dedicated to helping you achieve your dream of becoming a citizen of a foreign country</p>
+            <a href="#contact" class="cta-button">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Achieve Your Dream of Citizenship & Immigration</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>Visa Consultation</h3>
+                    <p>We provide visa consultation services to help you understand the visa requirements and guide you through the entire process.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>Visa Application</h3>
+                    <p>We help you apply for the visa and guide you through the process ensuring all documentation is complete and accurate.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Visa Processing</h3>
+                    <p>We process your visa application and ensure it is submitted on time with proper follow-up until approval.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>Visa Renewal</h3>
+                    <p>We help you renew your visa and guide you through the process making it hassle-free and efficient.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Visa Extension</h3>
+                    <p>We help you extend your visa and guide you through the process ensuring timely submission and approval.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>Multi-Country Support</h3>
+                    <p>We provide visa services for multiple countries helping you choose the best destination for your goals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Expert Visa Solutions For Your Journey</h2>
+                <p>At Happy Visa, we understand that navigating the complex world of immigration and visa applications can be overwhelming. That's why we're here to make your journey smooth, efficient, and successful.</p>
+                <p>Our team of experienced immigration consultants has helped hundreds of clients achieve their dreams of studying, working, or settling abroad. We stay updated with the latest immigration policies and procedures to provide you with accurate and reliable guidance.</p>
+                <ul class="about-features">
+                    <li>Best immigration resources and up-to-date information</li>
+                    <li>Approved exam facilitation and preparation</li>
+                    <li>Personalized consultation for your unique situation</li>
+                    <li>End-to-end support from application to approval</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80" alt="Team meeting">
+                <div class="experience-badge">
+                    <div class="number">10+</div>
+                    <div>Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="advantages">
+        <div class="container">
+            <h2 class="section-title">Advantages of Working With Our Consultancy</h2>
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Quick Visa Processing</h3>
+                    <p>We ensure fast-track processing of your visa application with our streamlined procedures and strong relationships with embassies.</p>
+                </div>
+                <div class="advantage-card">
+                    <i class="fas fa-dollar-sign"></i>
+                    <h3>Cost-Effective</h3>
+                    <p>Our services are competitively priced, offering excellent value for money without compromising on quality or results.</p>
+                </div>
+                <div class="advantage-card">
+                    <i class="fas fa-flag"></i>
+                    <h3>Multi-Country Support</h3>
+                    <p>We handle visa applications for numerous countries worldwide, making us your one-stop solution for all immigration needs.</p>
+                </div>
+                <div class="advantage-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>24/7 Customer Support</h3>
+                    <p>Our dedicated support team is available round the clock to answer your queries and provide assistance whenever you need it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Need Emergency Consultation?</h2>
+            <p>Start your immigration journey today with expert guidance and faster processing</p>
+            <a href="tel:+919640726262" class="cta-button">Call Us Today</a>
+            <ul class="cta-features">
+                <li><i class="fas fa-check-circle"></i> Personalized Visa Strategy</li>
+                <li><i class="fas fa-check-circle"></i> Document Assistance</li>
+                <li><i class="fas fa-check-circle"></i> Fast Processing</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Are People Saying About Our Service</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right"></i>
+                    <p class="testimonial-text">"I had a great experience with Happy Visa. They were very helpful and professional throughout my visa application process. Highly recommended!"</p>
+                    <p class="testimonial-author">Rajesh Kumar<br><span style="color: #666; font-weight: normal;">Student Visa</span></p>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right"></i>
+                    <p class="testimonial-text">"The team at Happy Visa made my work visa application seamless. Their expertise and guidance were invaluable. Thank you for making my dream come true!"</p>
+                    <p class="testimonial-author">Priya Sharma<br><span style="color: #666; font-weight: normal;">Work Visa</span></p>
+                </div>
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right"></i>
+                    <p class="testimonial-text">"Excellent service! The consultants were knowledgeable and always available to answer my questions. Got my visa approved in record time."</p>
+                    <p class="testimonial-author">Mohammed Ali<br><span style="color: #666; font-weight: normal;">Tourist Visa</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch With Us</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Call Us Today</h3>
+                    <p><a href="tel:+919640726262">+91 9640 72 6262</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Us</h3>
+                    <p><a href="mailto:info@happyvisa.com">info@happyvisa.com</a></p>
+                </div>
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Visit Our Office</h3>
+                    <p>HNO- 1-50, Anthergoam<br>Jagityal - 505455<br>Telangana, India</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Happy Visa. All Rights Reserved.</p>
+            <p>Immigration & Visa Consultant Services</p>
+            <p>Contact: +91 9640 72 6262 | HNO- 1-50, Anthergoam, Jagityal - 505455, Telangana, India</p>
+        </div>
+    </footer>
+</body>
+</html>
